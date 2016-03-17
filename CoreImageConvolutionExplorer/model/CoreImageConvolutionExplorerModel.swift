@@ -17,16 +17,54 @@ struct Kernel
 struct CoreImageConvolutionExplorerModel
 {
     let kernels = [
-        Kernel(name: "3 x 3 Box Blur", weights: [1,1,1,  1,1,1,  1,1,1]),
-        Kernel(name: "3 x 3 Sharpen", weights: [0,-1,0,  -1,5,-1,  0,-1,0]),
-        Kernel(name: "3 x 3 Sharper", weights: [-1,-1,-1,  -1,9,-1,   -1,-1,-1]),
-        Kernel(name: "3 x 3 Sharpest", weights: [1,1,1,  1,-7,1,  1,1,1]),
-        Kernel(name: "3 x 3 Edge Detect", weights: [-1,-1,-1,  -1,8,-1,  -1,-1,-1]),
-        Kernel(name: "3 x 3 Emboss", weights: [-2,-1,0,  -1,1,1,  0,1,2]),
-        Kernel(name: "3 x 3 Emboss (2)", weights: [2,0,0,  0,-1,0,  0,0,-1]),
-  
-        Kernel(name: "3 x 3 Sobel x", weights: [-1,0,1,  -2,0,2,  -1,0,1]),
-        Kernel(name: "3 x 3 Sobel y", weights: [-1,-2,-1,  0,0,0,  1,2,1]),
+        Kernel(name: "3 x 3 Box Blur", weights: [
+            1,1,1,
+            1,1,1,
+            1,1,1]),
+        
+        Kernel(name: "3 x 3 Sharpen", weights: [
+             0, -1,  0,
+            -1,  5, -1,
+             0, -1,  0
+            ]),
+        
+        Kernel(name: "3 x 3 Sharper", weights: [
+            -1,-1,-1,
+            -1, 9,-1,
+            -1,-1,-1
+            ]),
+        
+        Kernel(name: "3 x 3 Sharpest", weights: [
+            1,  1, 1,
+            1, -7, 1,
+            1,  1, 1
+            ]),
+        
+        Kernel(name: "3 x 3 Edge Detect", weights: [
+            -1,-1,-1,
+            -1, 8,-1,
+            -1,-1,-1
+            ]),
+        
+        Kernel(name: "3 x 3 Emboss", weights: [
+            -2, -1, 0,
+            -1,  1, 1,
+             0,  1, 2]),
+        
+        Kernel(name: "3 x 3 Emboss (2)", weights: [
+            2,  0, 0,
+            0, -1, 0,
+            0, 0, -1]),
+        
+        Kernel(name: "3 x 3 Sobel x", weights: [
+            -1, 0, 1,
+            -2, 0, 2,
+            -1, 0, 1]),
+        
+        Kernel(name: "3 x 3 Sobel y", weights: [
+            -1, -2, -1,
+             0,  0,  0,
+             1,  2,  1]),
         
         Kernel(name: "5 x 5 Box Blur", weights: [
             1,1,1,1,1,
