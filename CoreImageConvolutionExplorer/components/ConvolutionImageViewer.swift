@@ -14,14 +14,20 @@ class ConvolutionImageViewer: UIView
     let mona = CIImage(image: UIImage(named: "monalisa.jpg")!)!
     
     let imageView = OpenGLImageView()
+    let biasSlider = UISlider()
     
     override init(frame: CGRect)
     {
         super.init(frame: frame)
         
         addSubview(imageView)
+        addSubview(biasSlider)
         
         imageView.image = mona
+        
+        biasSlider.addTarget(self,
+            action: "applyConvolutionKernel",
+            forControlEvents: .ValueChanged)
     }
 
     required init?(coder aDecoder: NSCoder) {
@@ -41,9 +47,23 @@ class ConvolutionImageViewer: UIView
         }
     }
     
-    func applyConvolutionKernel()
+    func normaliseWeightsArray(weights: [CGFloat]?) -> [CGFloat]?
     {
         guard let weights = weights else
+        {
+            return nil
+        }
+        
+        let sum = weights.reduce(0, combine: +)
+        
+        return sum == 0 ?
+            weights :
+            weights.map({ $0 / sum })
+    }
+    
+    func applyConvolutionKernel()
+    {
+        guard let weights = normaliseWeightsArray(weights) else
         {
             return
         }
@@ -62,7 +82,10 @@ class ConvolutionImageViewer: UIView
         
         let weightsVector: CIVector = CIVector(values: weights, count: weights.count)
         
-        let finalImage = mona.imageByApplyingFilter(filterName, withInputParameters: [kCIInputWeightsKey: weightsVector])
+        let finalImage = mona.imageByApplyingFilter(filterName,
+            withInputParameters: [
+                kCIInputWeightsKey: weightsVector,
+                kCIInputBiasKey: CGFloat(biasSlider.value)]).imageByCroppingToRect(mona.extent)
         
         imageView.image = finalImage
     }
@@ -71,6 +94,11 @@ class ConvolutionImageViewer: UIView
     {
         imageView.frame = bounds
         imageView.setNeedsDisplay()
+        
+        biasSlider.frame = CGRect(x: 0,
+            y: frame.height - biasSlider.intrinsicContentSize().height - 20,
+            width: frame.width,
+            height: biasSlider.intrinsicContentSize().height)
     }
 }
 

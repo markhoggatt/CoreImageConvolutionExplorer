@@ -65,6 +65,8 @@ extension KernelsTableView: UITableViewDataSource
             forIndexPath: indexPath)
      
         cell.textLabel?.text = model.kernels[indexPath.row].name
+        cell.textLabel?.numberOfLines = 2
+        cell.textLabel?.textAlignment = .Center
         
         return cell
     }
