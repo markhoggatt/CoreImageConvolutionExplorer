@@ -23,11 +23,12 @@ class KernelsTableView: UIControl
         return tableView
     }()
     
+    private (set) var weights: [CGFloat]?
+    
     override init(frame: CGRect)
     {
         super.init(frame: frame)
-        
-        
+
         addSubview(tableView)
         tableView.dataSource = self
         tableView.delegate = self
@@ -73,6 +74,8 @@ extension KernelsTableView: UITableViewDelegate
 {
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath)
     {
-        
+        weights = model.kernels[indexPath.row].weights
+
+        sendActionsForControlEvents(.ValueChanged)
     }
 }

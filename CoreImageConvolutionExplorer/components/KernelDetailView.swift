@@ -10,17 +10,38 @@ import UIKit
 
 class KernelDetailView: UIView
 {
-    let labels: [UIView] =
+    let labels: [UILabel] =
     {
-        var array = [UIView]()
+        var array = [UILabel]()
         
         for _ in 0 ..< 49
         {
-            array.append(UIView())
+            let label = UILabel()
+            
+            label.backgroundColor = .darkGrayColor()
+            label.textColor = .whiteColor()
+            label.textAlignment = .Center
+            label.adjustsFontSizeToFitWidth = true
+            label.font = UIFont.boldSystemFontOfSize(20)
+            
+            array.append(label)
         }
         
         return array
     }()
+    
+    var weights: [CGFloat]?
+    {
+        didSet
+        {
+            if weights?.count != 9 && weights?.count != 25 && weights?.count != 49
+            {
+                fatalError("Weights array is wrong length!")
+            }
+            
+            updateWeightsGrid()
+        }
+    }
     
     override init(frame: CGRect)
     {
@@ -28,9 +49,6 @@ class KernelDetailView: UIView
         
         labels.forEach
         {
-            // $0.text = "\(drand48() * 10)"
-
-            $0.backgroundColor = UIColor.redColor()
             addSubview($0)
         }
     }
@@ -38,6 +56,48 @@ class KernelDetailView: UIView
     required init?(coder aDecoder: NSCoder)
     {
         fatalError("init(coder:) has not been implemented")
+    }
+    
+    func updateWeightsGrid()
+    {
+        guard let weights = weights else
+        {
+            return
+        }
+        
+        var sourceIndex = 0
+        
+        labels.enumerate().forEach
+        {
+            let x = $0 % 7
+            let y = $0 / 7
+            
+            switch weights.count
+            {
+            case 9:
+                if x > 1 && x < 5 && y > 1 && y < 5
+                {
+                    $1.text = "\(weights[sourceIndex])"
+                    sourceIndex += 1
+                }
+                else
+                {
+                    $1.text = ""
+                }
+            case 25:
+                if x > 0 && x < 6 && y > 0 && y < 6
+                {
+                    $1.text = "\(weights[sourceIndex])"
+                    sourceIndex += 1
+                }
+                else
+                {
+                    $1.text = ""
+                }
+            default:
+                $1.text = "\(weights[$0])"
+            }
+        }
     }
     
     override func layoutSubviews()

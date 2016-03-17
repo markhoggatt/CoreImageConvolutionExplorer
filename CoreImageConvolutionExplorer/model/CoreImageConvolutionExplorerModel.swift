@@ -17,9 +17,14 @@ struct Kernel
 struct CoreImageConvolutionExplorerModel
 {
     let kernels = [
-        Kernel(name: "Box Blur", weights: [1,1,1,  1,1,1,  1,1,1]),
-        Kernel(name: "Sharpen", weights: [0,-1,0,  -1,5,-1,  0,-1,0]),
-        Kernel(name: "Edge Detect", weights: [0,1,0,  1,4,1,  0,1,0]),
-        Kernel(name: "Emboss", weights: [-2,-1,0,  -1,1,1,  0,1,2])
+        Kernel(name: "3 x 3 Box Blur", weights: [1,1,1,  1,1,1,  1,1,1]),
+        Kernel(name: "3 x 3 Sharpen", weights: [0,-1,0,  -1,5,-1,  0,-1,0]),
+        Kernel(name: "3 x 3 Edge Detect", weights: [0,1,0,  1,4,1,  0,1,0]),
+        Kernel(name: "3 x 3 Emboss", weights: [-2,-1,0,  -1,1,1,  0,1,2]),
+        
+        Kernel(name: "5 x 5 Box Blur", weights: [1,1,1,1,1,  1,1,1,1,1,  1,1,1,1,1,  1,1,1,1,1,  1,1,1,1,1]),
+        
+        Kernel(name: "7 x 7 Box Blur", weights: [1,1,1,1,1,1,1,  1,1,1,1,1,1,1,  1,1,1,1,1,1,1,  1,1,1,1,1,1,1,  1,1,1,1,1,1,1,  1,1,1,1,1,1,1,  1,1,1,1,1,1,1,]),
+        
         ].sort({$0.name < $1.name})
 }

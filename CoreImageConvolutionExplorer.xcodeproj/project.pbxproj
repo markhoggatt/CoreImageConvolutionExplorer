@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3E9CD4FB1C9B0C3D00C67CB5 /* ConvolutionImageViewer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E9CD4FA1C9B0C3D00C67CB5 /* ConvolutionImageViewer.swift */; };
 		3EABB9B61C9AC91400170E8F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EABB9B51C9AC91400170E8F /* AppDelegate.swift */; };
 		3EABB9B81C9AC91400170E8F /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EABB9B71C9AC91400170E8F /* ViewController.swift */; };
 		3EABB9BB1C9AC91400170E8F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3EABB9B91C9AC91400170E8F /* Main.storyboard */; };
@@ -19,6 +20,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		3E9CD4FA1C9B0C3D00C67CB5 /* ConvolutionImageViewer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ConvolutionImageViewer.swift; path = components/ConvolutionImageViewer.swift; sourceTree = "<group>"; };
 		3EABB9B21C9AC91400170E8F /* CoreImageConvolutionExplorer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CoreImageConvolutionExplorer.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3EABB9B51C9AC91400170E8F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		3EABB9B71C9AC91400170E8F /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -80,6 +82,7 @@
 			children = (
 				3EABB9CA1C9AC9CD00170E8F /* KernelsTableView.swift */,
 				3EABB9CF1C9AD17C00170E8F /* KernelDetailView.swift */,
+				3E9CD4FA1C9B0C3D00C67CB5 /* ConvolutionImageViewer.swift */,
 			);
 			name = components;
 			sourceTree = "<group>";
@@ -168,6 +171,7 @@
 				3EABB9D01C9AD17C00170E8F /* KernelDetailView.swift in Sources */,
 				3EABB9CB1C9AC9CD00170E8F /* KernelsTableView.swift in Sources */,
 				3EABB9B81C9AC91400170E8F /* ViewController.swift in Sources */,
+				3E9CD4FB1C9B0C3D00C67CB5 /* ConvolutionImageViewer.swift in Sources */,
 				3EABB9B61C9AC91400170E8F /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -318,6 +322,7 @@
 				3EABB9C61C9AC91400170E8F /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
