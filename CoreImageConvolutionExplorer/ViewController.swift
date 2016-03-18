@@ -43,31 +43,16 @@ class ViewController: UIViewController
             y: topMargin,
             width: kernelsTableViewWidth,
             height: workspaceHeight).insetBy(dx: 5, dy: 0)
+
+        kernelDetailView.frame = CGRect(x: kernelsTableViewWidth,
+            y: topMargin,
+            width: workspaceWidth / 2,
+            height: workspaceHeight).insetBy(dx: 5, dy: 0)
         
-        if view.frame.width > view.frame.height
-        {
-            kernelDetailView.frame = CGRect(x: kernelsTableViewWidth,
-                y: topMargin,
-                width: workspaceWidth / 2,
-                height: workspaceHeight).insetBy(dx: 5, dy: 0)
-            
-            convolutionImageViewer.frame = CGRect(x: kernelsTableViewWidth + workspaceWidth / 2,
-                y: topMargin,
-                width: workspaceWidth / 2,
-                height: workspaceHeight).insetBy(dx: 5, dy: 0)
-        }
-        else
-        {
-            kernelDetailView.frame = CGRect(x: kernelsTableViewWidth,
-                y: topMargin,
-                width: workspaceWidth - kernelsTableViewWidth,
-                height: workspaceHeight / 2).insetBy(dx: 5, dy: 5)
-            
-            convolutionImageViewer.frame = CGRect(x: kernelsTableViewWidth,
-                y: topMargin + workspaceHeight / 2,
-                width: workspaceWidth - kernelsTableViewWidth,
-                height: workspaceHeight / 2).insetBy(dx: 5, dy: 5)
-        }
+        convolutionImageViewer.frame = CGRect(x: kernelsTableViewWidth + workspaceWidth / 2,
+            y: topMargin,
+            width: workspaceWidth / 2,
+            height: workspaceHeight).insetBy(dx: 5, dy: 0)
     }
 
 }

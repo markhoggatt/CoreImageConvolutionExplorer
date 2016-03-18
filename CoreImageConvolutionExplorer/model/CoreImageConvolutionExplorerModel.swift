@@ -17,6 +17,12 @@ struct Kernel
 struct CoreImageConvolutionExplorerModel
 {
     let kernels = [
+        
+        Kernel(name: "3 x 3 Identity", weights: [
+            0,0,0,
+            0,1,0,
+            0,0,0]),
+        
         Kernel(name: "3 x 3 Box Blur", weights: [
             1,1,1,
             1,1,1,
@@ -95,6 +101,14 @@ struct CoreImageConvolutionExplorerModel
             -1, -1,  0,  1, 1,
             -1,  0,  1,  1, 0,
              0,  1,  1,  1, 1
+            ]),
+        
+        Kernel(name: "5 x 5 Unsharp", weights: [
+            1, 4, 6, 4, 1,
+            4, 16, 24, 16, 4,
+            6, 24, -476, 24, 6,
+            4, 16, 24, 16, 4,
+            1, 4, 6, 4, 1,
             ]),
         
         Kernel(name: "5 x 5 Sharpen", weights: [
