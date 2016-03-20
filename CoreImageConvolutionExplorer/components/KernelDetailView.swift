@@ -54,7 +54,8 @@ class KernelDetailView: UIView
             {
                 let total = weights.reduce(0, combine: +)
 
-                totalLabel.textColor = total < 0 ? UIColor.redColor() : UIColor.blackColor()
+                totalLabel.textColor = total == 0 ? UIColor.yellowColor() : total < 0 ? UIColor.redColor() : UIColor.blackColor()
+                totalLabel.backgroundColor = total == 0 ? UIColor.darkGrayColor() : UIColor.whiteColor()
                 totalLabel.text = "Σ \(total)"
             }
             else
