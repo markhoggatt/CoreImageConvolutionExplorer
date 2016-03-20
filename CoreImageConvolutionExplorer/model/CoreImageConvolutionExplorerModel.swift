@@ -94,15 +94,7 @@ struct CoreImageConvolutionExplorerModel
             5,0,0,0,-5,
             5,-5,-5,-5,-5
             ]),
-        
-        Kernel(name: "5 x 5 Bias Demo Emboss (-ve)", weights: [
-            0.4, 0.4, 0.4, 0.4, -0.4,
-            0.4, 0, 0, 0, -0.4,
-            0.4, 0, 0, 0, -0.4,
-            0.4, 0, 0, 0, -0.4,
-            -0.4,-0.4,-0.4,-0.4,-0.4
-            ]),
-        
+
         Kernel(name: "5 x 5 Gaussian Blur", weights: [
              1,  4,  7,  4, 1,
              4, 16, 26, 16, 4,
