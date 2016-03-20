@@ -71,13 +71,37 @@ struct CoreImageConvolutionExplorerModel
             -1, -2, -1,
              0,  0,  0,
              1,  2,  1]),
-        
+
         Kernel(name: "5 x 5 Box Blur", weights: [
             1,1,1,1,1,
             1,1,1,1,1,
             1,1,1,1,1,
             1,1,1,1,1,
             1,1,1,1,1]),
+        
+        Kernel(name: "5 x 5 Bias Demo Emboss (zero)", weights: [
+            5,5,5,5,5,
+            5,0,0,0,-5,
+            5,0,0,0,-5,
+            5,0,0,0,-5,
+            -5,-5,-5,-5,-5
+            ]),
+        
+        Kernel(name: "5 x 5 Bias Demo Emboss (+ve)", weights: [
+            5,5,5,5,5,
+            5,0,0,0,-5,
+            5,0,0,0,-5,
+            5,0,0,0,-5,
+            5,-5,-5,-5,-5
+            ]),
+        
+        Kernel(name: "5 x 5 Bias Demo Emboss (-ve)", weights: [
+            0.4, 0.4, 0.4, 0.4, -0.4,
+            0.4, 0, 0, 0, -0.4,
+            0.4, 0, 0, 0, -0.4,
+            0.4, 0, 0, 0, -0.4,
+            -0.4,-0.4,-0.4,-0.4,-0.4
+            ]),
         
         Kernel(name: "5 x 5 Gaussian Blur", weights: [
              1,  4,  7,  4, 1,

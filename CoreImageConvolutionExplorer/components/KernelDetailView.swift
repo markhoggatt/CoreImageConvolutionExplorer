@@ -10,6 +10,17 @@ import UIKit
 
 class KernelDetailView: UIView
 {
+    let totalLabel: UILabel =
+    {
+        let label = UILabel()
+        
+        label.font = UIFont.boldSystemFontOfSize(20)
+        label.textAlignment = .Center
+        label.text = "Select Kernel";
+        
+        return label
+    }()
+    
     let labels: [UILabel] =
     {
         var array = [UILabel]()
@@ -39,6 +50,18 @@ class KernelDetailView: UIView
                 fatalError("Weights array is wrong length!")
             }
             
+            if let weights = weights
+            {
+                let total = weights.reduce(0, combine: +)
+
+                totalLabel.textColor = total < 0 ? UIColor.redColor() : UIColor.blackColor()
+                totalLabel.text = "Σ \(total)"
+            }
+            else
+            {
+                totalLabel.text = ""
+            }
+            
             updateWeightsGrid()
         }
     }
@@ -51,6 +74,8 @@ class KernelDetailView: UIView
         {
             addSubview($0)
         }
+        
+        addSubview(totalLabel)
     }
 
     required init?(coder aDecoder: NSCoder)
@@ -115,5 +140,10 @@ class KernelDetailView: UIView
                 width: boxSide,
                 height: boxSide).insetBy(dx: 0.5, dy: 0.5)
         }
+        
+        totalLabel.frame = CGRect(x: 0, y:
+            frame.height - 20 - totalLabel.intrinsicContentSize().height,
+            width: frame.width,
+            height: totalLabel.intrinsicContentSize().height)
     }
 }
