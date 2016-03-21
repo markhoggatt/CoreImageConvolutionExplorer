@@ -13,6 +13,8 @@ class ConvolutionImageViewer: UIView
 {
     let mona = CIImage(image: UIImage(named: "monalisa.jpg")!)!
     
+    let makeOpaqueKernel = CIColorKernel(string: "kernel vec4 xyz(__sample pixel) { return vec4(pixel.rgb, 1.0); }")
+    
     let imageView = OpenGLImageView()
     
     let biasSlider = LabelledSlider(title: "Bias",
@@ -125,7 +127,8 @@ class ConvolutionImageViewer: UIView
                 kCIInputWeightsKey: weightsVector,
                 kCIInputBiasKey: CGFloat(biasSlider.value)]).imageByCroppingToRect(mona.extent)
         
-        imageView.image = finalImage
+        imageView.image = makeOpaqueKernel?.applyWithExtent(mona.extent,
+            arguments: [finalImage])
     }
     
     override func layoutSubviews()
