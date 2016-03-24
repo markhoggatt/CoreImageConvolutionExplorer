@@ -8,12 +8,12 @@
 
 /* Begin PBXBuildFile section */
 		3E9CD4FB1C9B0C3D00C67CB5 /* ConvolutionImageViewer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E9CD4FA1C9B0C3D00C67CB5 /* ConvolutionImageViewer.swift */; };
+		3E9DEFB71CA3D3E700F9F241 /* railroad.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 3E9DEFB61CA3D3E700F9F241 /* railroad.jpg */; };
 		3EABB9B61C9AC91400170E8F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EABB9B51C9AC91400170E8F /* AppDelegate.swift */; };
 		3EABB9B81C9AC91400170E8F /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EABB9B71C9AC91400170E8F /* ViewController.swift */; };
 		3EABB9BB1C9AC91400170E8F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3EABB9B91C9AC91400170E8F /* Main.storyboard */; };
 		3EABB9BD1C9AC91400170E8F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3EABB9BC1C9AC91400170E8F /* Assets.xcassets */; };
 		3EABB9C01C9AC91400170E8F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3EABB9BE1C9AC91400170E8F /* LaunchScreen.storyboard */; };
-		3EABB9C81C9AC94000170E8F /* monalisa.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 3EABB9C71C9AC94000170E8F /* monalisa.jpg */; };
 		3EABB9CB1C9AC9CD00170E8F /* KernelsTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EABB9CA1C9AC9CD00170E8F /* KernelsTableView.swift */; };
 		3EABB9CE1C9ACA9600170E8F /* CoreImageConvolutionExplorerModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EABB9CD1C9ACA9600170E8F /* CoreImageConvolutionExplorerModel.swift */; };
 		3EABB9D01C9AD17C00170E8F /* KernelDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EABB9CF1C9AD17C00170E8F /* KernelDetailView.swift */; };
@@ -21,6 +21,7 @@
 
 /* Begin PBXFileReference section */
 		3E9CD4FA1C9B0C3D00C67CB5 /* ConvolutionImageViewer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ConvolutionImageViewer.swift; path = components/ConvolutionImageViewer.swift; sourceTree = "<group>"; };
+		3E9DEFB61CA3D3E700F9F241 /* railroad.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = railroad.jpg; sourceTree = "<group>"; };
 		3EABB9B21C9AC91400170E8F /* CoreImageConvolutionExplorer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CoreImageConvolutionExplorer.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3EABB9B51C9AC91400170E8F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		3EABB9B71C9AC91400170E8F /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -28,7 +29,6 @@
 		3EABB9BC1C9AC91400170E8F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		3EABB9BF1C9AC91400170E8F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		3EABB9C11C9AC91400170E8F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		3EABB9C71C9AC94000170E8F /* monalisa.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = monalisa.jpg; sourceTree = "<group>"; };
 		3EABB9CA1C9AC9CD00170E8F /* KernelsTableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = KernelsTableView.swift; path = components/KernelsTableView.swift; sourceTree = "<group>"; };
 		3EABB9CD1C9ACA9600170E8F /* CoreImageConvolutionExplorerModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CoreImageConvolutionExplorerModel.swift; path = model/CoreImageConvolutionExplorerModel.swift; sourceTree = "<group>"; };
 		3EABB9CF1C9AD17C00170E8F /* KernelDetailView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = KernelDetailView.swift; path = components/KernelDetailView.swift; sourceTree = "<group>"; };
@@ -66,7 +66,7 @@
 			children = (
 				3EABB9CC1C9ACA7400170E8F /* model */,
 				3EABB9C91C9AC98000170E8F /* components */,
-				3EABB9C71C9AC94000170E8F /* monalisa.jpg */,
+				3E9DEFB61CA3D3E700F9F241 /* railroad.jpg */,
 				3EABB9B51C9AC91400170E8F /* AppDelegate.swift */,
 				3EABB9B71C9AC91400170E8F /* ViewController.swift */,
 				3EABB9B91C9AC91400170E8F /* Main.storyboard */,
@@ -156,7 +156,7 @@
 				3EABB9C01C9AC91400170E8F /* LaunchScreen.storyboard in Resources */,
 				3EABB9BD1C9AC91400170E8F /* Assets.xcassets in Resources */,
 				3EABB9BB1C9AC91400170E8F /* Main.storyboard in Resources */,
-				3EABB9C81C9AC94000170E8F /* monalisa.jpg in Resources */,
+				3E9DEFB71CA3D3E700F9F241 /* railroad.jpg in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

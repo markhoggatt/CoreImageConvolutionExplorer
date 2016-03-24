@@ -43,7 +43,7 @@ class KernelsTableView: UIControl
     
     override func layoutSubviews()
     {
-        tableView.frame = bounds; print(bounds)
+        tableView.frame = bounds
     }
 }
 

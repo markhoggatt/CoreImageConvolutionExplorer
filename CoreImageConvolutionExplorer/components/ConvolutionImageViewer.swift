@@ -11,9 +11,9 @@ import GLKit
 
 class ConvolutionImageViewer: UIView
 {
-    let mona = CIImage(image: UIImage(named: "monalisa.jpg")!)!
+    let railroadImage = CIImage(image: UIImage(named: "railroad.jpg")!)!
     
-    let makeOpaqueKernel = CIColorKernel(string: "kernel vec4 xyz(__sample pixel) { return vec4(pixel.rgb, 1.0); }")
+    let makeOpaqueKernel = CIColorKernel(string: "kernel vec4 makeOpaque(__sample pixel) { return vec4(pixel.rgb, 1.0); }")
     
     let imageView = OpenGLImageView()
     
@@ -36,7 +36,7 @@ class ConvolutionImageViewer: UIView
         addSubview(normaliseButton)
         addSubview(premultiplyButton)
         
-        imageView.image = mona
+        imageView.image = railroadImage
         
         biasSlider.addTarget(self,
             action: #selector(ConvolutionImageViewer.applyConvolutionKernel),
@@ -109,8 +109,6 @@ class ConvolutionImageViewer: UIView
     
     func applyConvolutionKernel()
     {
-        print("normaliseButton =", normaliseButton.on)
-        
         guard let weights = normaliseWeightsArray(weights, normalise: normaliseButton.on) else
         {
             return
@@ -130,16 +128,20 @@ class ConvolutionImageViewer: UIView
         
         let weightsVector: CIVector = CIVector(values: weights, count: weights.count)
         
-        let finalImage = mona.imageByApplyingFilter(filterName,
+        let finalImage = railroadImage.imageByApplyingFilter(filterName,
             withInputParameters: [
                 kCIInputWeightsKey: weightsVector,
-                kCIInputBiasKey: CGFloat(biasSlider.value)]).imageByCroppingToRect(mona.extent)
+                kCIInputBiasKey: CGFloat(biasSlider.value)]).imageByCroppingToRect(railroadImage.extent)
         
         // Two seperate approaches to make opaque to mirror
-        // book content:
+        // book content. The CIColorMatrix technique could
+        // can be replicated by chaning the `makeOpaqueKernel`'s
+        // code to:
+        //
+        // 'return vec4(unpremultiply(pixel).rgb, 1.0)'
         if premultiplyButton.on
         {
-            imageView.image = makeOpaqueKernel?.applyWithExtent(mona.extent,
+            imageView.image = makeOpaqueKernel?.applyWithExtent(railroadImage.extent,
                 arguments: [finalImage])
         }
         else
@@ -273,7 +275,7 @@ class LabelledSwitch: LabelledControl
             width: frame.midX,
             height: frame.height).insetBy(dx: 5, dy: 5)
         
-        onOffSwitch.frame = CGRect(x: frame.width / 2,
+        onOffSwitch.frame = CGRect(x: frame.width - onOffSwitch.intrinsicContentSize().width - 10,
             y: 0,
             width: frame.width / 2,
             height: frame.height).insetBy(dx: 5, dy: 5)

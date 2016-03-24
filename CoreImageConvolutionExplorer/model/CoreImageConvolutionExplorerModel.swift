@@ -101,6 +101,14 @@ struct CoreImageConvolutionExplorerModel
             5,-5,-5,-5,-5
             ]),
 
+        Kernel(name: "5 x 5 Laplacian", weights: [
+            -4, -1, 0, -1, -4,
+            -1,  2, 3,  2, -1,
+             0,  3, 4,  3,  0,
+            -1,  2, 3,  2, -1,
+            -4, -1, 0, -1, -4
+            ]),
+        
         Kernel(name: "5 x 5 Gaussian Blur", weights: [
              1,  4,  7,  4, 1,
              4, 16, 26, 16, 4,
@@ -184,8 +192,17 @@ struct CoreImageConvolutionExplorerModel
             0, 18, 64, 100, 64, 18, 0,
             0, 5, 18, 32, 18, 5, 0,
             0, 0, 0, 5, 0, 0, 0
-            ])
+            ]),
  
+        Kernel(name: "7 x 7 Laplacian", weights: [
+            -10, -5, -2, -1, -2, -5, -10,
+             -5,  0,  3,  4,  3,  0,  -5,
+             -2,  3,  6,  7,  6,  3,  -2,
+             -1,  4,  7,  8,  7,  4,  -1,
+             -2,  3,  6,  7,  6,  3,  -2,
+             -5,  0,  3,  4,  3,  0,  -5,
+            -10, -5, -2, -1, -2, -5, -10
+            ])
         
         ].sort({$0.name < $1.name})
 }
