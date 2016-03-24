@@ -22,7 +22,7 @@ class ViewController: UIViewController
         view.addSubview(kernelDetailView)
         view.addSubview(convolutionImageViewer)
         
-        kernelsTableView.addTarget(self, action: "kernelSelectionChange",
+        kernelsTableView.addTarget(self, action: #selector(ViewController.kernelSelectionChange),
             forControlEvents: .ValueChanged)
     }
     

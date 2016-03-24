@@ -143,7 +143,7 @@ class KernelDetailView: UIView
         }
         
         totalLabel.frame = CGRect(x: 0, y:
-            frame.height - 20 - totalLabel.intrinsicContentSize().height,
+            frame.height - 10 - totalLabel.intrinsicContentSize().height,
             width: frame.width,
             height: totalLabel.intrinsicContentSize().height)
     }

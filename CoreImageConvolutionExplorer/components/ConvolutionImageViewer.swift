@@ -24,6 +24,9 @@ class ConvolutionImageViewer: UIView
     let normaliseButton = LabelledSwitch(title: "Normalize",
         on: true)
     
+    let premultiplyButton = LabelledSwitch(title: "Premultiply",
+        on: true)
+    
     override init(frame: CGRect)
     {
         super.init(frame: frame)
@@ -31,15 +34,20 @@ class ConvolutionImageViewer: UIView
         addSubview(imageView)
         addSubview(biasSlider)
         addSubview(normaliseButton)
+        addSubview(premultiplyButton)
         
         imageView.image = mona
         
         biasSlider.addTarget(self,
-            action: "applyConvolutionKernel",
+            action: #selector(ConvolutionImageViewer.applyConvolutionKernel),
             forControlEvents: .ValueChanged)
         
         normaliseButton.addTarget(self,
-            action: "applyConvolutionKernel",
+            action: #selector(ConvolutionImageViewer.applyConvolutionKernel),
+            forControlEvents: .ValueChanged)
+        
+        premultiplyButton.addTarget(self,
+            action: #selector(ConvolutionImageViewer.applyConvolutionKernel),
             forControlEvents: .ValueChanged)
     }
 
@@ -127,8 +135,19 @@ class ConvolutionImageViewer: UIView
                 kCIInputWeightsKey: weightsVector,
                 kCIInputBiasKey: CGFloat(biasSlider.value)]).imageByCroppingToRect(mona.extent)
         
-        imageView.image = makeOpaqueKernel?.applyWithExtent(mona.extent,
-            arguments: [finalImage])
+        // Two seperate approaches to make opaque to mirror
+        // book content:
+        if premultiplyButton.on
+        {
+            imageView.image = makeOpaqueKernel?.applyWithExtent(mona.extent,
+                arguments: [finalImage])
+        }
+        else
+        {
+            imageView.image = finalImage
+                .imageByApplyingFilter("CIColorMatrix", withInputParameters: [ "inputBiasVector": CIVector(x: 0, y: 0, z: 0, w: 1)])
+            .imageByCroppingToRect(finalImage.extent)
+        }
     }
     
     override func layoutSubviews()
@@ -136,13 +155,20 @@ class ConvolutionImageViewer: UIView
         imageView.frame = bounds
         imageView.setNeedsDisplay()
         
+        let buttonY = frame.height - biasSlider.intrinsicContentSize().height - normaliseButton.intrinsicContentSize().height - 20
+        
         normaliseButton.frame = CGRect(x: 0,
-            y: frame.height - biasSlider.intrinsicContentSize().height - normaliseButton.intrinsicContentSize().height - 40,
-            width: frame.width,
+            y: buttonY,
+            width: frame.width / 2 - 5,
+            height: normaliseButton.intrinsicContentSize().height)
+
+        premultiplyButton.frame = CGRect(x: frame.width / 2 + 5,
+            y: buttonY,
+            width: frame.width / 2 - 5,
             height: normaliseButton.intrinsicContentSize().height)
         
         biasSlider.frame = CGRect(x: 0,
-            y: frame.height - biasSlider.intrinsicContentSize().height - 20,
+            y: frame.height - biasSlider.intrinsicContentSize().height - 10,
             width: frame.width,
             height: biasSlider.intrinsicContentSize().height)
     }
@@ -204,7 +230,7 @@ class LabelledSwitch: LabelledControl
         onOffSwitch.on = on
         
         onOffSwitch.addTarget(self,
-            action: "switchChangeHandler",
+            action: #selector(LabelledSwitch.switchChangeHandler),
             forControlEvents: .ValueChanged)
         
         addSubview(onOffSwitch)
@@ -247,9 +273,9 @@ class LabelledSwitch: LabelledControl
             width: frame.midX,
             height: frame.height).insetBy(dx: 5, dy: 5)
         
-        onOffSwitch.frame = CGRect(x: frame.midX,
+        onOffSwitch.frame = CGRect(x: frame.width / 2,
             y: 0,
-            width: frame.midX,
+            width: frame.width / 2,
             height: frame.height).insetBy(dx: 5, dy: 5)
     }
 }
@@ -268,7 +294,7 @@ class LabelledSlider: LabelledControl
         slider.maximumValue = maximumValue
         
         slider.addTarget(self,
-            action: "sliderChangeHandler",
+            action: #selector(LabelledSlider.sliderChangeHandler),
             forControlEvents: .ValueChanged)
 
         addSubview(slider)

@@ -52,6 +52,12 @@ struct CoreImageConvolutionExplorerModel
             -1,-1,-1
             ]),
         
+        Kernel(name: "3 x 3 Laplacian", weights: [
+            0, 1, 0,
+            1, -4,1,
+            0, 1, 0
+            ]),
+        
         Kernel(name: "3 x 3 Emboss", weights: [
             -2, -1, 0,
             -1,  1, 1,
