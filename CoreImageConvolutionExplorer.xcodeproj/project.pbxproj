@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3E2760C01CA96E3400C71B50 /* screenshot.PNG in Resources */ = {isa = PBXBuildFile; fileRef = 3E2760BF1CA96E3400C71B50 /* screenshot.PNG */; };
 		3E9CD4FB1C9B0C3D00C67CB5 /* ConvolutionImageViewer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E9CD4FA1C9B0C3D00C67CB5 /* ConvolutionImageViewer.swift */; };
 		3E9DEFB71CA3D3E700F9F241 /* railroad.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 3E9DEFB61CA3D3E700F9F241 /* railroad.jpg */; };
 		3EABB9B61C9AC91400170E8F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EABB9B51C9AC91400170E8F /* AppDelegate.swift */; };
@@ -20,6 +21,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		3E2760BF1CA96E3400C71B50 /* screenshot.PNG */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = screenshot.PNG; path = CoreImageConvolutionExplorer/screenshot.PNG; sourceTree = "<group>"; };
 		3E9CD4FA1C9B0C3D00C67CB5 /* ConvolutionImageViewer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ConvolutionImageViewer.swift; path = components/ConvolutionImageViewer.swift; sourceTree = "<group>"; };
 		3E9DEFB61CA3D3E700F9F241 /* railroad.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = railroad.jpg; sourceTree = "<group>"; };
 		3EABB9B21C9AC91400170E8F /* CoreImageConvolutionExplorer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CoreImageConvolutionExplorer.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -48,6 +50,7 @@
 		3EABB9A91C9AC91400170E8F = {
 			isa = PBXGroup;
 			children = (
+				3E2760BF1CA96E3400C71B50 /* screenshot.PNG */,
 				3EABB9B41C9AC91400170E8F /* CoreImageConvolutionExplorer */,
 				3EABB9B31C9AC91400170E8F /* Products */,
 			);
@@ -157,6 +160,7 @@
 				3EABB9BD1C9AC91400170E8F /* Assets.xcassets in Resources */,
 				3EABB9BB1C9AC91400170E8F /* Main.storyboard in Resources */,
 				3E9DEFB71CA3D3E700F9F241 /* railroad.jpg in Resources */,
+				3E2760C01CA96E3400C71B50 /* screenshot.PNG in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
